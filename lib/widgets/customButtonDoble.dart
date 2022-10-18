@@ -18,7 +18,7 @@ class CustomButtomDoble extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-          fontSize: 28,
+          fontSize: 24,
           fontWeight: FontWeight.bold,
         ),
       ),

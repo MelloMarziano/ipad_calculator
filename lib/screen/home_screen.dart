@@ -35,16 +35,17 @@ class HomeeScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.end,
-                  children: const [
+                  children: [
                     Text(
-                      '4,900 + 15,900',
+                      '${_.firstInput} ${_.operation} ${_.secondInput}',
                       style: TextStyle(
                         fontSize: 32,
+                        color: Colors.black.withOpacity(0.5),
                       ),
                     ),
                     Text(
-                      '20,810',
-                      style: TextStyle(
+                      _.resultLabel,
+                      style: const TextStyle(
                         fontSize: 100,
                         fontWeight: FontWeight.bold,
                       ),
@@ -115,7 +116,9 @@ class HomeeScreen extends StatelessWidget {
                         CustomButtom(
                           text: 'C',
                           color: borderColor,
-                          function: () {},
+                          function: () {
+                            _.clearAll();
+                          },
                         ),
                         CustomButtom(
                           text: '+/-',
@@ -128,9 +131,11 @@ class HomeeScreen extends StatelessWidget {
                           function: () {},
                         ),
                         CustomButtom(
-                          text: '/',
+                          text: '÷',
                           color: optionButton,
-                          function: () {},
+                          function: () {
+                            _.captureOperation('/');
+                          },
                         ),
                       ],
                     ),
@@ -145,12 +150,12 @@ class HomeeScreen extends StatelessWidget {
                           function: () {},
                         ),
                         CustomButtom(
-                          text: 'x2',
+                          text: 'x²',
                           color: especialButton,
                           function: () {},
                         ),
                         CustomButtom(
-                          text: 'x3',
+                          text: 'x³',
                           color: especialButton,
                           function: () {},
                         ),
@@ -160,34 +165,42 @@ class HomeeScreen extends StatelessWidget {
                           function: () {},
                         ),
                         CustomButtom(
-                          text: 'ex',
+                          text: 'e×',
                           color: especialButton,
                           function: () {},
                         ),
                         CustomButtom(
-                          text: '10x',
+                          text: '10×',
                           color: especialButton,
                           function: () {},
                         ),
                         CustomButtom(
                           text: '7',
                           color: numberButton,
-                          function: () {},
+                          function: () {
+                            _.captureNumberValue(7);
+                          },
                         ),
                         CustomButtom(
                           text: '8',
                           color: numberButton,
-                          function: () {},
+                          function: () {
+                            _.captureNumberValue(8);
+                          },
                         ),
                         CustomButtom(
                           text: '9',
                           color: numberButton,
-                          function: () {},
+                          function: () {
+                            _.captureNumberValue(9);
+                          },
                         ),
                         CustomButtom(
                           text: 'X',
                           color: optionButton,
-                          function: () {},
+                          function: () {
+                            _.captureOperation('x');
+                          },
                         ),
                       ],
                     ),
@@ -196,17 +209,17 @@ class HomeeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         CustomButtom(
-                          text: '1/x',
+                          text: '¹/x',
                           color: especialButton,
                           function: () {},
                         ),
                         CustomButtom(
-                          text: '2√x',
+                          text: '²√x',
                           color: especialButton,
                           function: () {},
                         ),
                         CustomButtom(
-                          text: '3√x',
+                          text: '³√x',
                           color: especialButton,
                           function: () {},
                         ),
@@ -228,22 +241,30 @@ class HomeeScreen extends StatelessWidget {
                         CustomButtom(
                           text: '4',
                           color: numberButton,
-                          function: () {},
+                          function: () {
+                            _.captureNumberValue(4);
+                          },
                         ),
                         CustomButtom(
                           text: '5',
                           color: numberButton,
-                          function: () {},
+                          function: () {
+                            _.captureNumberValue(5);
+                          },
                         ),
                         CustomButtom(
                           text: '6',
                           color: numberButton,
-                          function: () {},
+                          function: () {
+                            _.captureNumberValue(6);
+                          },
                         ),
                         CustomButtom(
                           text: '-',
                           color: optionButton,
-                          function: () {},
+                          function: () {
+                            _.captureOperation('-');
+                          },
                         ),
                       ],
                     ),
@@ -284,22 +305,30 @@ class HomeeScreen extends StatelessWidget {
                         CustomButtom(
                           text: '1',
                           color: numberButton,
-                          function: () {},
+                          function: () {
+                            _.captureNumberValue(1);
+                          },
                         ),
                         CustomButtom(
                           text: '2',
                           color: numberButton,
-                          function: () {},
+                          function: () {
+                            _.captureNumberValue(2);
+                          },
                         ),
                         CustomButtom(
                           text: '3',
                           color: numberButton,
-                          function: () {},
+                          function: () {
+                            _.captureNumberValue(3);
+                          },
                         ),
                         CustomButtom(
                           text: '+',
                           color: optionButton,
-                          function: () {},
+                          function: () {
+                            _.captureOperation('+');
+                          },
                         ),
                       ],
                     ),
@@ -340,7 +369,9 @@ class HomeeScreen extends StatelessWidget {
                         CustomButtomDoble(
                           text: '0',
                           color: numberButton,
-                          function: () {},
+                          function: () {
+                            _.captureNumberValue(0);
+                          },
                         ),
                         CustomButtom(
                           text: '.',
@@ -350,7 +381,9 @@ class HomeeScreen extends StatelessWidget {
                         CustomButtom(
                           text: '=',
                           color: optionButton,
-                          function: () {},
+                          function: () {
+                            _.makeOperation();
+                          },
                         ),
                       ],
                     ),
